@@ -1,17 +1,17 @@
-name: Build and Test
+name: "Setup environment"
+description: ""
 
-on:
-  push:
-    branches:
-      - main
+runs:
+  using: composite
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v4
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+    - name: Setup JDK
+      uses: actions/setup-java@v4
+      with:
+        distribution: ${{ env.JVM_DISTRIBUTION }}
+        java-version: ${{ env.JVM_VERSION }}
 
-    steps:
-      - name: Setup Environment
-        uses: ./.github/actions/setup-env
-        with:
-          jvm_distribution: 'adopt'
-          jvm_version: '17'
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v3
