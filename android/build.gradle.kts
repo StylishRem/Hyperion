@@ -24,7 +24,7 @@ subprojects {
             }
         }
 
-        jvmToolchain(libs.versions.jvm.get().toInt())
+        jvmToolchain(17)
     }
 
     configure<ApplicationExtension> {
