@@ -51,7 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       JVM_DISTRIBUTION: 'adopt'
-      JVM_VERSION: '11'
+      JVM_VERSION: '17'
     steps:
       - uses: actions/checkout@v3
 
